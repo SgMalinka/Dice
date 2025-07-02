@@ -1,0 +1,9 @@
+.panel {
+    &__select {
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

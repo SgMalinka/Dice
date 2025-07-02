@@ -1,3 +1,9 @@
+import { Main } from '@/components/index';
+
 export default function Home() {
-    return <div></div>;
+    return (
+        <div>
+            <Main />
+        </div>
+    );
 }

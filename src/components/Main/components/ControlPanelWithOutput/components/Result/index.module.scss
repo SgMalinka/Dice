@@ -1,0 +1,13 @@
+.result {
+    width: 320px;
+    height: 200px;
+    background: #0000000a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+    &__info {
+        font-size: 96px;
+    }
+}
