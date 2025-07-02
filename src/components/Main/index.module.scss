@@ -1,9 +1,8 @@
+@use '@/styles/mixins' as *;
+
 .main {
     &__container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include d-flex(column, center, center);
         height: 100vh;
         margin: 0 auto;
         padding: 20px;

@@ -1,3 +1,5 @@
+@use '@/styles/mixins' as *;
+
 .table {
     width: 100%;
     max-width: 600px;
@@ -18,21 +20,20 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            font-size: 0.875rem;
         }
     }
 
     &__container {
-        display: flex;
-        flex-direction: column;
+        @include d-flex(column, null, null);
         width: 100%;
         max-width: 100%;
     }
 
     &__item {
-        display: flex;
         width: 100%;
         flex-wrap: nowrap;
-        align-items: center;
+        @include d-flex(null, null, center);
         border-bottom: 1px solid #0000001f;
         box-sizing: border-box;
     }
@@ -43,6 +44,7 @@
         max-width: 200px;
         padding: 6px 16px;
         box-sizing: border-box;
+        font-size: 0.875rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
