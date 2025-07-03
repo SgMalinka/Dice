@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Snackbar from '@mui/material/Snackbar';
+import { Box } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import Alert from '@mui/material/Alert';
 import { COLORS, Number, Status } from '@/core/enums';
 
@@ -40,20 +42,20 @@ export const SnackbarAlert = ({
                     backgroundColor: isWin ? COLORS.LIGHT_GREEN : COLORS.LIGHT_RED,
                 }}
             >
-                <div>
+                <Box>
                     {customMessage ? (
-                        <>{customMessage}</>
+                        <Typography>{customMessage}</Typography>
                     ) : isWin ? (
-                        <>You won</>
+                        <Typography>You won</Typography>
                     ) : (
                         <>
-                            <div>You lost</div>
-                            <small>
+                            <Typography>You lost</Typography>
+                            <Typography variant="caption">
                                 Number was {isNumberHigher ? Number.HIGHER : Number.LOWER}
-                            </small>
+                            </Typography>
                         </>
                     )}
-                </div>
+                </Box>
             </Alert>
         </Snackbar>
     );

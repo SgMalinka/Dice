@@ -6,9 +6,8 @@
     height: 200px;
     background: #0000000a;
     @include d-flex(null, center, center);
-    margin-top: 20px;
 
     &__info {
-        font-size: 96px;
+        font-size: 96px !important;
     }
 }
