@@ -1,8 +1,15 @@
 import React from 'react';
-import s from './index.module.scss';
-import { TableBody } from './components';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Box from '@mui/material/Box';
+import { COLORS } from '@/core/enums';
 
 interface HistoryItem {
+    id: string;
     time: string;
     guess: string;
     result: number;
@@ -13,23 +20,60 @@ interface TableResultProps {
     history: HistoryItem[];
 }
 
-export const TableResult = ({ history }: TableResultProps) => (
-    <div className={s.table}>
-        <div className={s.table__header}>
-            <p className={s.table__header__item}>Time</p>
-            <p className={s.table__header__item}>Guess</p>
-            <p className={s.table__header__item}>Result</p>
-        </div>
-        <div className={s.table__container}>
-            {history.map((item, idx) => (
-                <TableBody
-                    key={idx}
-                    guess={item.guess}
-                    isUserWon={item.isUserWon}
-                    result={item.result}
-                    time={item.time}
-                />
-            ))}
-        </div>
-    </div>
-);
+export const TableResult = ({ history }: TableResultProps) => {
+    return (
+        <TableContainer
+            component={Box}
+            sx={{
+                maxWidth: 600,
+                margin: 'auto',
+                backgroundColor: 'transparent',
+                boxShadow: 'none',
+                border: 'none',
+                overflow: 'visible',
+            }}
+        >
+            <Table
+                aria-label="basic table"
+                sx={{
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                }}
+            >
+                <TableHead>
+                    <TableRow>
+                        <TableCell sx={{ borderBottom: '1px solid rgba(224, 224, 224, 1)' }}>
+                            Time
+                        </TableCell>
+                        <TableCell sx={{ borderBottom: '1px solid rgba(224, 224, 224, 1)' }}>
+                            Guess
+                        </TableCell>
+                        <TableCell sx={{ borderBottom: '1px solid rgba(224, 224, 224, 1)' }}>
+                            Result
+                        </TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {history.map(item => (
+                        <TableRow key={item.id}>
+                            <TableCell sx={{ borderBottom: '1px solid rgba(224, 224, 224, 1)' }}>
+                                {item.time}
+                            </TableCell>
+                            <TableCell sx={{ borderBottom: '1px solid rgba(224, 224, 224, 1)' }}>
+                                {item.guess}
+                            </TableCell>
+                            <TableCell
+                                sx={{
+                                    color: item.isUserWon ? COLORS.GREEN : COLORS.RED,
+                                    borderBottom: '1px solid rgba(224, 224, 224, 1)',
+                                }}
+                            >
+                                {item.result}
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </TableContainer>
+    );
+};

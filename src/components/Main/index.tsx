@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { Box } from '@mui/material';
 import { ControlPanelWithOutput, SnackbarAlert, TableResult } from './components';
 import { useDiceGame } from '@/hooks';
 
@@ -22,7 +23,7 @@ export const Main = () => {
     } = useDiceGame();
 
     return (
-        <div className={s.main}>
+        <Box className={s.main}>
             <SnackbarAlert
                 isWin={isWin}
                 isNumberHigher={true}
@@ -30,7 +31,7 @@ export const Main = () => {
                 onClose={() => setIsOpen(false)}
                 customMessage={customMessage}
             />
-            <div className={s.main__container}>
+            <Box className={s.main__container}>
                 <ControlPanelWithOutput
                     threshold={threshold}
                     setThreshold={setThreshold}
@@ -40,7 +41,7 @@ export const Main = () => {
                     operand={operand}
                 />
                 <TableResult history={history} />
-            </div>
-        </div>
+            </Box>
+        </Box>
     );
 };
