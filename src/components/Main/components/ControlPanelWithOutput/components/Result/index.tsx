@@ -1,4 +1,7 @@
 import React from 'react';
+import { Box } from '@mui/material';
+import Typography from '@mui/material/Typography';
+
 import s from './index.module.scss';
 
 interface ResultProps {
@@ -6,7 +9,9 @@ interface ResultProps {
 }
 
 export const Result = ({ value }: ResultProps) => (
-    <div className={s.result}>
-        <p className={s.result__info}>{value !== null ? value : '-'}</p>
-    </div>
+    <Box className={s.result}>
+        <Typography className={s.result__info} component="p">
+            {value !== null ? value : '-'}
+        </Typography>
+    </Box>
 );

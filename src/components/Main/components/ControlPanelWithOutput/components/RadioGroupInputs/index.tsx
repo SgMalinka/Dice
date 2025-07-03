@@ -6,6 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { GuessType } from '@/core/enums';
+import { sliderColors } from '@/core/constants';
 
 interface RadioGroupInputsProps {
     value: GuessType.UNDER | GuessType.OVER;
@@ -22,13 +23,27 @@ export const RadioGroupInputs = ({ value, onChange }: RadioGroupInputsProps) => 
             <FormControlLabel
                 value={GuessType.UNDER}
                 labelPlacement="start"
-                control={<Radio sx={{ color: '#9c27b0', '&.Mui-checked': { color: '#9c27b0' } }} />}
+                control={
+                    <Radio
+                        sx={{
+                            color: sliderColors.primary,
+                            '&.Mui-checked': { color: sliderColors.primary },
+                        }}
+                    />
+                }
                 label="Under"
             />
             <FormControlLabel
                 value={GuessType.OVER}
                 labelPlacement="start"
-                control={<Radio sx={{ color: '#9c27b0', '&.Mui-checked': { color: '#9c27b0' } }} />}
+                control={
+                    <Radio
+                        sx={{
+                            color: sliderColors.primary,
+                            '&.Mui-checked': { color: sliderColors.primary },
+                        }}
+                    />
+                }
                 label="Over"
             />
         </RadioGroup>

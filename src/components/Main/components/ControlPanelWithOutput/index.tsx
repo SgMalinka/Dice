@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { PlayButton, RadioGroupInputs, Result, SliderInput } from './components';
+import { Box } from '@mui/material';
+import { GuessType } from '@/core/enums';
 
 import s from './index.module.scss';
-import { GuessType } from '@/core/enums';
 
 interface ControlProps {
     result: number | null;
@@ -24,13 +25,13 @@ export const ControlPanelWithOutput = ({
     playGame,
 }: ControlProps) => {
     return (
-        <div className={s.panel}>
-            <div className={s.panel__select}>
+        <Box className={s.panel}>
+            <Box className={s.panel__select}>
                 <Result value={result} />
                 <RadioGroupInputs value={operand} onChange={setOperand} />
                 <SliderInput value={threshold} onChange={setThreshold} />
-            </div>
+            </Box>
             <PlayButton onClick={playGame} />
-        </div>
+        </Box>
     );
 };

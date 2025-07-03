@@ -1,6 +1,7 @@
 import React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import { sliderColors } from '@/core/constants';
 
 interface PlayButtonProps {
     onClick: () => void;
@@ -11,7 +12,7 @@ export const PlayButton = ({ onClick }: PlayButtonProps) => (
         <Button
             variant="contained"
             sx={{
-                backgroundColor: '#9c27b0',
+                backgroundColor: sliderColors.primary,
                 padding: '8px 141px',
                 fontSize: '0.938rem',
                 lineHeight: '26px',

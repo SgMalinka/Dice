@@ -37,6 +37,7 @@ export default [
                 it: true,
                 expect: true,
                 describe: true,
+                beforeEach: true,
             },
         },
         plugins: {
